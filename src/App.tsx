@@ -23,8 +23,9 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <CountButton count={count} method={increase}/>
-        <CountButton count={count} method={decrease}/>
+        <h2>count: {count}</h2>
+        <CountButton method={increase} title="increase"/>
+        <CountButton method={decrease} title="decrease"/>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

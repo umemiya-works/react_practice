@@ -1,12 +1,12 @@
 type CountButtonProps = {
-  count: number,
   method: () => void
+  title: string
 }
 
-export default function CountButton({ count, method }: CountButtonProps) {
+export default function CountButton({ method, title }: CountButtonProps) {
   return (
     <button onClick={method}>
-      count is {count}
+      {`${title === 'increase' ? 'Increase' : 'Decrease'}`}
     </button>
   )
 }

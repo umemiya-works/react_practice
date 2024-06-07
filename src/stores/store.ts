@@ -1,12 +1,28 @@
 import { create } from 'zustand'
+import { devtools, persist } from 'zustand/middleware'
 
-export const useStore = create<StoreState>(set => ({
-  count: 0,
-  increase: () => set((state: StoreState) => ({ count: state.count + 1 })),
-  decrease: () => set((state: StoreState) => ({ count: state.count - 1 }))
-}))
+export const useStore = create<Count>()(
+  devtools(
+    persist(
+      (set) => ({
+        count: 0,
+        increase: () =>
+          set((state) => {
+            return { count: state.count + 1 }
+          }),
+        decrease: () =>
+          set((state) => {
+            return { count: state.count - 1}
+          })
+      }),
+      {
+        name: 'count-store'
+      },
+    )
+  )
+)
 
-type StoreState = {
+type Count = {
   count: number,
   increase: () => void,
   decrease: () => void
