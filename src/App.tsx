@@ -3,6 +3,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { useStore } from './stores/store'
 import CountButton from './components/CountButton'
+import { Link } from '@tanstack/react-router'
 
 function App() {
   const { count, increase, decrease } = useStore(state => ({
@@ -26,9 +27,11 @@ function App() {
         <h2>count: {count}</h2>
         <CountButton method={increase} title="increase"/>
         <CountButton method={decrease} title="decrease"/>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      </div>
+      <div>
+        <Link to="/about">
+          About
+        </Link>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
